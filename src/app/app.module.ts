@@ -16,6 +16,7 @@ import {SearchComponent} from './shared/search/search.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HelperService} from './shared/helper.service';
 import {RegistrationService} from './registration/registration.service';
+import {DatepickerModule} from './shared/angular2-material-datepicker/src/datepicker.module';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {RegistrationService} from './registration/registration.service';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    DatepickerModule
   ],
   providers: [
     HelperService,
