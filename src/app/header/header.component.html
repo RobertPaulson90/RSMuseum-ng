@@ -6,9 +6,19 @@
 
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li><a href="#">Hjem</a></li>
-        <li><a href="#">Frivillige</a></li>
-        <li><a href="#">Godkendelse</a></li>
+        <li role="presentation"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+          <a routerLink="/">Hjem</a>
+        </li>
+        <li role="presentation"
+            routerLinkActive="active">
+          <a routerLink="frivillige">Frivillige</a>
+        </li>
+        <li role="presentation"
+            routerLinkActive="active">
+          <a routerLink="registrering-godkendelse">Hjem</a>
+        </li>
       </ul>
     </div>
   </div>

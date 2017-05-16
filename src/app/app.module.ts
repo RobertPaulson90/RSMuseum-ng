@@ -17,6 +17,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HelperService} from './shared/helper.service';
 import {RegistrationService} from './registration/registration.service';
 import {DatepickerModule} from './shared/angular2-material-datepicker/src/datepicker.module';
+import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import {AppRoutingModule} from './app-routing.module';
 
 
 @NgModule({
@@ -29,14 +31,16 @@ import {DatepickerModule} from './shared/angular2-material-datepicker/src/datepi
     HomeComponent,
     VolunteerListComponent,
     VolunteerItemComponent,
-    SearchComponent
+    SearchComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    DatepickerModule
+    DatepickerModule,
+    AppRoutingModule
   ],
   providers: [
     HelperService,
