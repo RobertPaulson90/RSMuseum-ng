@@ -1,51 +1,35 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-  <h3>Frivillig Registrering</h3>
-  <div class="form-group input-group">
-    <label>Medlems Nr.:</label>
-    <input type="text" class="form-control">
-  </div>
+      <form>
+        <h3>Frivillig Registrering</h3>
+        <div class="form-group input-group">
+          <label>Medlems Nr.:</label>
+          <input type="text" class="form-control">
+        </div>
 
-  <div class="form-group input-group">
-    <label>Antal Timer:</label>
-    <input type="text" class="form-control">
-  </div>
+        <div class="form-group input-group">
+          <label>Antal Timer:</label>
+          <input type="text" class="form-control">
+        </div>
 
-  <div class="form-group input-group">
-    <label>Laug:</label>
-    <select class="form-control">
-      <option *ngFor="let guild of guilds"> {{ guild.name}}</option>
-    </select>
-  </div>
+        <div class="form-group input-group">
+          <label>Laug:</label>
+          <select class="form-control">
+            <option *ngFor="let guild of guilds"> {{ guild.name}}</option>
+          </select>
+        </div>
 
-  <label>Dato:</label>
-  <div class="form-group input-group">
-    <material-datepicker></material-datepicker>
-  </div>
-  </div>
-  </div>
-  <!--<div class="form-group input-group">-->
-  <!--<div class="input-group date" data-provide="datepicker">-->
-  <!--<input v-model="Date" type="text" class="form-control" id="datetimepicker">-->
-  <!--<div class="input-group-addon">-->
-  <!--<span class="glyphicon glyphicon-calendar"></span>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--</div>-->
+        <label>Dato:</label>
+        <div class="form-group input-group">
+          <material-datepicker></material-datepicker>
+        </div>
 
-  <!--<div id="custom-margin-from-top" class="input-group">-->
-  <!--<button v-on:click="ConvertToJson" type="button" class="btn btn-warning">Submit</button>-->
-  <!--</div>-->
-  <!--<template v-if="showMessage">-->
-  <!--<transition name="fade">-->
-  <!--<div v-if="Message === 'Din registrering er behandlet, tak for dit arbejde!'" class="alert alert-success">-->
-  <!--<p>{{Message}}</p>-->
-  <!--</div>-->
-  <!--<div v-else-if="Message === 'Hov, noget gik galt'" class="alert alert-danger">-->
-  <!--<p>{{Message}}</p>-->
-  <!--</div>-->
-  <!--</transition>-->
-  <!--</template>-->
+        <div id="custom-margin-from-top" class="input-group">
+          <button type="button" class="btn btn-warning">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
