@@ -20,12 +20,9 @@
       "prefix": "app",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "styles.css",
-        "../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"
+        "styles.css"
       ],
       "scripts": [
-        "../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js",
-        "../node_modules/jquery/dist/jquery.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
