@@ -7,7 +7,7 @@ import {Guild} from '../../shared/guild.model';
   styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
-  private guilds: Guild[] = [new Guild('Testlaug 1'), new Guild('Testlaug 2')];
+  guilds: Guild[] = [new Guild('Testlaug 1'), new Guild('Testlaug 2')];
 
   constructor() {
   }

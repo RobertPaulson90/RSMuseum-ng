@@ -9,7 +9,7 @@ import {Guild} from '../../shared/guild.model';
 })
 
 export class VolunteerListComponent implements OnInit {
-  private volunteers: Volunteer[] = [new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
+  volunteers: Volunteer[] = [new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
     new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
     new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
     new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),

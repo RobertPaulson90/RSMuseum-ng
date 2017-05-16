@@ -10,8 +10,7 @@ import {Volunteer} from '../../shared/volunteer.model';
 })
 export class RegistrationListComponent implements OnInit {
 
-  tempDate: Date = new Date(Date.now());
-  private registrations: Registration[] = [
+  registrations: Registration[] = [
     new Registration(4, 10, Date.now().toString(), true, false, new Guild('Laug 1'), new Volunteer('peter', 'jensen', 5, [new Guild('test')])),
     new Registration(4, 10, Date.now().toString(), true, false, new Guild('Laug 1'), new Volunteer('peter', 'jensen', 5, [new Guild('test')])),
     new Registration(4, 10, Date.now().toString(), true, false, new Guild('Laug 1'), new Volunteer('peter', 'jensen', 5, [new Guild('test')])),

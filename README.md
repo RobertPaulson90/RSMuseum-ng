@@ -1,28 +1,21 @@
-# RSMuseumNG
+# RSMuseum-ng
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
+An Angular web application as a front-end for a separate projects back-end. Made as part of our 4th semester Datamatiker (Computer Science) education, at Vejle EAL. Hosted live at [tech-flex.com/RSMuseum-ng](http://tech-flex.com/RSMuseum-ng/) thanks to GitHub Pages.
 
-## Development server
+## How to Deploy
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For deploying live to http://tech-flex.com/RSMuseum-ng/. **This is only for users with Git-collaborator permissions.** 
+### Requirement
+Install this node package globally https://github.com/angular-buch/angular-cli-ghpages
 
-## Code scaffolding
+`npm i -g angular-cli-ghpages`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+### Deployment
 
-## Build
+Build the app for production:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+`ng build --prod --base-href "http://tech-flex.com/RSMuseum-ng/"`
 
-## Running unit tests
+Then deploy with the new angular-cli-ghpages tool!
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`ngh`
