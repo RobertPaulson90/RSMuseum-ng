@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Volunteer} from '../../shared/volunteer.model';
 import {Guild} from '../../shared/guild.model';
+import {VolunteerService} from '../volunteer.service';
 
 @Component({
   selector: 'app-volunteer-list',
@@ -9,20 +10,19 @@ import {Guild} from '../../shared/guild.model';
 })
 
 export class VolunteerListComponent implements OnInit {
-  volunteers: Volunteer[] = [new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
-    new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
-    new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
-    new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
-    new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
-    new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
-    new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')]),
-    new Volunteer('lars', 'larsen', 4, [new Guild('Laug 1'), new Guild('sds 2')])];
+  volunteers: Volunteer[];
+  loading = true;
 
-
-  constructor() {
+  constructor(private volunteerService: VolunteerService) {
   }
 
   ngOnInit() {
+    this.volunteerService.getVolunteers()
+      .subscribe(
+        (volunteers) => this.volunteers = volunteers,
+        (error) => console.log(error),
+        () => console.log(this.loading = false)
+      );
   }
 
 }
