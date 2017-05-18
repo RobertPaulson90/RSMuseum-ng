@@ -1,32 +1,54 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <form>
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <h3>Frivillig Registrering</h3>
         <div class="form-group input-group">
-          <label>Medlems Nr.:</label>
-          <input type="text" class="form-control">
+          <label for="membershipNumber">Medlems Nr:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="membershipNumber"
+            formControlName="membershipNumber">
+          <span
+            *ngIf="!registrationForm.get('membershipNumber').valid && registrationForm.get('membershipNumber').touched"
+            class="help-block">Skriv dit medlemsnummer</span>
         </div>
 
         <div class="form-group input-group">
-          <label>Antal Timer:</label>
-          <input type="text" class="form-control">
+          <label for="hours">Antal Timer:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="hours"
+            formControlName="hours">
+          <span
+            *ngIf="!registrationForm.get('hours').valid && registrationForm.get('hours').touched"
+            class="help-block">Skriv antal timer du har arbejdet</span>
         </div>
 
         <div class="form-group input-group">
-          <label>Laug:</label>
-          <select class="form-control">
+          <label for="guild">Laug:</label>
+          <select
+            class="form-control"
+            id="guild"
+            formControlName="guild">
+            <option style="display: none">Vælg et laug</option>
             <option *ngFor="let guild of guilds"> {{ guild.name}}</option>
           </select>
+          <span
+            *ngIf="!registrationForm.get('guild').valid && registrationForm.get('guild').touched"
+            class="help-block">Vælg et laug</span>
         </div>
 
         <label>Dato:</label>
         <div class="form-group input-group">
-          <material-datepicker></material-datepicker>
+          <material-datepicker (onSelect)="dateSelected($event)"></material-datepicker>
         </div>
 
         <div id="custom-margin-from-top" class="input-group">
-          <button type="button" class="btn btn-warning">Submit</button>
+          <button [disabled]="!registrationForm.valid && date !== null" type="submit" class="btn btn-warning">Submit
+          </button>
         </div>
       </form>
     </div>
