@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Guild} from '../../shared/guild.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {RegistrationService} from '../../shared/registration.service';
+import {Registration} from '../../shared/registration.model';
+import {Volunteer} from '../../shared/volunteer.model';
 
 @Component({
   selector: 'app-registration-form',
@@ -8,11 +11,13 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
-  guilds: Guild[] = [new Guild('Testlaug 1'), new Guild('Testlaug 2')];
+  guilds: Guild[] = [];
   registrationForm: FormGroup;
-  date: Date;
+  dateSelected: Date;
+  private selectedGuild;
 
-  constructor() {
+
+  constructor(private registrationService: RegistrationService) {
   }
 
   ngOnInit() {
@@ -21,14 +26,37 @@ export class RegistrationFormComponent implements OnInit {
       'hours': new FormControl(null, Validators.required),
       'guild': new FormControl(null, Validators.required),
     });
+
+    this.registrationService.getGuilds()
+      .subscribe(
+        (guilds) => this.guilds = guilds,
+        (error) => console.log(error),
+        () => console.log(this.guilds)
+      );
   }
 
   onSubmit() {
-    console.log(this.registrationForm);
+    const volunteerId = this.registrationForm.get('membershipNumber').value;
+    const hours = this.registrationForm.get('hours').value;
+    const guildId = this.registrationForm.get('guild').value.GuildId;
+    const registration = new Registration(hours, this.dateSelected.toDateString(), guildId, volunteerId);
+
+    this.registrationService.addRegistration(registration).subscribe(
+      (error) => console.log(error),
+      () => console.log('registrationService.addRegistration() complete')
+    );
+    ;
   }
 
-  dateSelected(event: Date) {
-    this.date = event;
-    console.log(this.date.toDateString());
+  onDateSelected(event: Date) {
+    this.dateSelected = event;
+  }
+
+  validateForm() {
+    if (this.registrationForm.valid && (typeof this.dateSelected !== 'undefined')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

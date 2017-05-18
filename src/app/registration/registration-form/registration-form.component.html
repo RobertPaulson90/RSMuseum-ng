@@ -34,7 +34,7 @@
             id="guild"
             formControlName="guild">
             <option style="display: none">Vælg et laug</option>
-            <option *ngFor="let guild of guilds"> {{ guild.name}}</option>
+            <option *ngFor="let guild of guilds" [ngValue]="guild"> {{ guild.GuildName }}</option>
           </select>
           <span
             *ngIf="!registrationForm.get('guild').valid && registrationForm.get('guild').touched"
@@ -43,11 +43,12 @@
 
         <label>Dato:</label>
         <div class="form-group input-group">
-          <material-datepicker (onSelect)="dateSelected($event)"></material-datepicker>
+          <material-datepicker (onSelect)="onDateSelected($event)"></material-datepicker>
         </div>
 
         <div id="custom-margin-from-top" class="input-group">
-          <button [disabled]="!registrationForm.valid && date !== null" type="submit" class="btn btn-warning">Submit
+          <button [disabled]="!validateForm()" type="submit" class="btn btn-warning">
+            Submit
           </button>
         </div>
       </form>

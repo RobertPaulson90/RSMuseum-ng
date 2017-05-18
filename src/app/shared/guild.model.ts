@@ -1,4 +1,4 @@
 export class Guild {
-  constructor(public name: string) {
+  constructor(public GuildName: string, public GuildId: number) {
   }
 }
