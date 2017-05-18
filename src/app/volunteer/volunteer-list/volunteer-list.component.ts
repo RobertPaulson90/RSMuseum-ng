@@ -12,6 +12,7 @@ import {VolunteerService} from '../volunteer.service';
 export class VolunteerListComponent implements OnInit {
   volunteers: Volunteer[];
   loading = true;
+  searchString = '';
 
   constructor(private volunteerService: VolunteerService) {
   }
@@ -25,4 +26,7 @@ export class VolunteerListComponent implements OnInit {
       );
   }
 
+  onSearchStringChanged(searchStrinng: string) {
+    this.searchString = searchStrinng;
+  }
 }
