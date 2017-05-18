@@ -20,6 +20,7 @@ import {DatepickerModule} from './shared/angular2-material-datepicker/src/datepi
 import {ErrorPageComponent} from './shared/error-page/error-page.component';
 import {AppRoutingModule} from './app-routing.module';
 import {VolunteerService} from './volunteer/volunteer.service';
+import { VolunteerFilterByNamePipe } from './shared/volunteer-filter.pipe';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {VolunteerService} from './volunteer/volunteer.service';
     VolunteerListComponent,
     VolunteerItemComponent,
     SearchComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    VolunteerFilterByNamePipe
   ],
   imports: [
     BrowserModule,
