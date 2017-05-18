@@ -1,6 +1,6 @@
 <div id="custom-search-input">
   <div class="input-group col-sm-3">
-    <input type="text" class="form-control input-lg" placeholder="Søg"/>
+    <input type="text" class="form-control input-lg" placeholder="Søg" [(ngModel)]="searchString" (input)="onSearchStringChanged()"/>
     <span class="input-group-btn">
         <button class="btn btn-warning btn-lg" type="button">
           <i class="glyphicon glyphicon-search"></i>
@@ -8,4 +8,3 @@
      </span>
   </div>
 </div>
-
