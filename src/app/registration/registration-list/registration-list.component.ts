@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Registration} from '../../shared/registration.model';
-import {Guild} from '../../shared/guild.model';
-import {Volunteer} from '../../shared/volunteer.model';
+import { Component, OnInit } from '@angular/core';
+import { Registration } from '../../shared/registration.model';
+import { Guild } from '../../shared/guild.model';
+import { Volunteer } from '../../shared/volunteer.model';
 
 @Component({
   selector: 'app-registration-list',
@@ -9,6 +9,8 @@ import {Volunteer} from '../../shared/volunteer.model';
   styleUrls: ['./registration-list.component.css']
 })
 export class RegistrationListComponent implements OnInit {
+
+  searchString;
 
   registrations: Registration[] = [
     new Registration(4, 10, Date.now().toString(), true, false, new Guild('Laug 1'), new Volunteer('peter', 'jensen', 5)),
@@ -25,4 +27,7 @@ export class RegistrationListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSearchStringChanged(searchStrinng: string) {
+    this.searchString = searchStrinng;
+  }
 }

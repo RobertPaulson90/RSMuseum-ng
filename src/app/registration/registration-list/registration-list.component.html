@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Ubehandlede registreringer</h2>
-  <app-search></app-search>
+  <app-search (searchStringChanged)="onSearchStringChanged($event)"></app-search>
   <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -11,7 +11,7 @@
     </tr>
     </thead>
     <tbody name="list" is="transition-group">
-    <tr *ngFor="let registration of registrations">
+    <tr *ngFor="let registration of registrations | registrationFilterByVolunteerName:searchString">
       <td>{{registration.volunteer.firstName}} {{registration.volunteer.LastName}}</td>
       <td>{{registration.date}}</td>
       <td>{{registration.hours}}</td>
