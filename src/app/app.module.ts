@@ -22,6 +22,8 @@ import {VolunteerService} from './volunteer/volunteer.service';
 import {VolunteerFilterByNamePipe} from './volunteer/volunteer-filter.pipe';
 import {RegistrationFilterByVolunteerNamePipe} from './registration/registration-filter.pipe';
 import {RegistrationService} from './shared/registration.service';
+import {StatisticsComponent} from './statistics/statistics.component';
+import {ChartsModule} from 'ng2-charts';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import {RegistrationService} from './shared/registration.service';
     SearchComponent,
     ErrorPageComponent,
     VolunteerFilterByNamePipe,
-    RegistrationFilterByVolunteerNamePipe
+    RegistrationFilterByVolunteerNamePipe,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import {RegistrationService} from './shared/registration.service';
     BrowserAnimationsModule,
     DatepickerModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [
     HelperService,
