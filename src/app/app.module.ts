@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-// testtest
 
 import {AppComponent} from './app.component';
 import {RegistrationListComponent} from './registration/registration-list/registration-list.component';

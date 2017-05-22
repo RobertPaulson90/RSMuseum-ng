@@ -1,4 +1,8 @@
-input.ng-invalid.ng-touched {
+input.ng-invalid.ng-touched.ng-pending {
+  border: 1px solid red;
+}
+
+input.ng-pending {
   border: 1px solid red;
 }
 

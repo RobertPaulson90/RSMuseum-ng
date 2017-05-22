@@ -36,15 +36,6 @@ export class VolunteerService {
   }
 
   getVolunteersById(membershipNumber: number) {
-    // clearTimeout(this.myvar);
-    // this.myvar = setTimeout(function () {
-    //   return this.http.get('http://rsmuseummvc.azurewebsites.net/api/GetVolunteerById/' + membershipNumber)
-    //     .map(
-    //       (response: Response) => {
-    //         return response;
-    //       }
-    //     );
-    // }, 3000);
     return this.http.get('http://rsmuseummvc.azurewebsites.net/api/GetVolunteerById/' + membershipNumber)
       .map(
         (response: Response) => {

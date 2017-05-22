@@ -1,0 +1,23 @@
+
+.navbar-default .navbar-nav > .active > a {
+  color: white;
+  border-bottom-color:black;
+}
+.navbar-default {
+  background-color: #e6e6e6;
+  border-bottom-color:darkgray;
+
+}
+
+.navbar-default .navbar-nav > li > a {
+  line-height:40px;
+  font-size: 120%;
+  color: black;
+}
+
+
+
+
+
+
+

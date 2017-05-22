@@ -9,6 +9,8 @@ export class Registration {
               public Processed?: boolean,
               public RegistrationId?: number,
               public Approved?: boolean,
+              public Volunteer?: Volunteer,
+              public Guild?: Guild
   ) {
   }
 }
