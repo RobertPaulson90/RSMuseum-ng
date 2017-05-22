@@ -12,7 +12,7 @@
             formControlName="membershipNumber">
           <span
             *ngIf="!registrationForm.get('membershipNumber').valid && registrationForm.get('membershipNumber').touched"
-            class="help-block">Skriv dit medlemsnummer</span>
+            class="help-block">Skriv et eksiterende medlemsnummer</span>
         </div>
 
         <div class="form-group input-group">
@@ -50,6 +50,10 @@
           <button [disabled]="!validateForm()" type="submit" class="btn btn-warning">
             Submit
           </button>
+        </div>
+        <div [class.show]="!addRegistrationStatus" class="step width"
+             [ngClass]="{'alert-success':requestWasSuccesfull, 'alert-danger': !requestWasSuccesfull}">
+          <h3>{{ addRegistrationMessage }}</h3>
         </div>
       </form>
     </div>

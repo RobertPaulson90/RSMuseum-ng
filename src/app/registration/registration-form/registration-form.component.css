@@ -6,3 +6,15 @@ select.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 
+.show {
+  opacity: 1 !important;
+}
+
+.step {
+  opacity: 0;
+  transition: 0.8s ease-in-out all;
+}
+
+div.width {
+  max-width: 300px;
+}

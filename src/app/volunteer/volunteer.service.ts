@@ -6,8 +6,10 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class VolunteerService {
+  private myvar;
   volunteers: Volunteer[] = [];
   guildNames = '';
+
 
   constructor(private http: Http) {
   }
@@ -29,6 +31,24 @@ export class VolunteerService {
             this.guildNames = '';
           }
           return this.volunteers;
+        }
+      );
+  }
+
+  getVolunteersById(membershipNumber: number) {
+    // clearTimeout(this.myvar);
+    // this.myvar = setTimeout(function () {
+    //   return this.http.get('http://rsmuseummvc.azurewebsites.net/api/GetVolunteerById/' + membershipNumber)
+    //     .map(
+    //       (response: Response) => {
+    //         return response;
+    //       }
+    //     );
+    // }, 3000);
+    return this.http.get('http://rsmuseummvc.azurewebsites.net/api/GetVolunteerById/' + membershipNumber)
+      .map(
+        (response: Response) => {
+          return response;
         }
       );
   }

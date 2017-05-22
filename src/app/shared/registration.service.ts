@@ -24,7 +24,7 @@ export class RegistrationService {
   addRegistration(registration: Registration) {
     const headers = new Headers({'Content-Type': 'application/json'});
 
-    return this.http.put(
+    return this.http.post(
       'http://rsmuseummvc.azurewebsites.net/api/AddRegistration',
       registration,
       {headers: headers});
