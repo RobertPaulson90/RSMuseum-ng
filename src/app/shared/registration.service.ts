@@ -6,8 +6,8 @@ import {Registration} from './registration.model';
 
 @Injectable()
 export class RegistrationService {
-   guilds: Guild[] = [];
-   registrations: Registration[] = [];
+  guilds: Guild[] = [];
+  registrations: Registration[] = [];
 
   constructor(private http: Http) {
   }
@@ -39,20 +39,21 @@ export class RegistrationService {
           const data: Registration[] = response.json();
           this.registrations = data
           for (const registration of data) {
-             registration.Date = registration.Date.substring(0, 10);
+            registration.Date = registration.Date.substring(0, 10);
           }
           return data;
         }
       );
   }
 
-  handleRegistration(index: number, approved: boolean) {
-    const id = this.registrations[index].RegistrationId;
+  handleRegistration(id: number, approved: boolean) {
+
+
     if (approved) {
       return this.http.get('http://rsmuseummvc.azurewebsites.net/api/HandleRegistrations/' + id + '/true/')
         .map(
           (response: Response) => {
-            this.registrations.splice(index, 1);
+            this.findIndexOfRegistrationsAndRemove(id);
             return this.registrations;
           }
         );
@@ -60,10 +61,19 @@ export class RegistrationService {
       return this.http.get('http://rsmuseummvc.azurewebsites.net/api/HandleRegistrations/' + id + '/false/')
         .map(
           (response: Response) => {
-            this.registrations.splice(index, 1);
+            this.findIndexOfRegistrationsAndRemove(id);
             return this.registrations;
           }
         );
+    }
+  }
+
+  findIndexOfRegistrationsAndRemove(id: number) {
+    for (let i = 0; i <= this.registrations.length; i++) {
+      if (this.registrations[i].RegistrationId === id) {
+        this.registrations.splice(i, 1);
+        break;
+      }
     }
   }
 }

@@ -1,3 +1,23 @@
-<p>
-  data-view works!
-</p>
+<div class="container">
+  <div class="col-xs-12">
+    <label>Dato:</label>
+    <div class="form-group input-group">
+      <material-datepicker (onSelect)="onDateSelected($event)"></material-datepicker>
+    </div>
+
+    <div>
+      <div style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+

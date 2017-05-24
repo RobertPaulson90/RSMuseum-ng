@@ -43,9 +43,9 @@ export class RegistrationListComponent implements OnInit {
     this.searchString = searchStrinng;
   }
 
-  handleRegistration(index: number, approved: boolean) {
+  handleRegistration(id: number, approved: boolean) {
     console.log(this.registrations)
-    this.registrationService.handleRegistration(index, approved)
+    this.registrationService.handleRegistration(id, approved)
       .subscribe(
         (registrations) => this.registrations = registrations,
         (error) => console.log(error),

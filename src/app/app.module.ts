@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {ChartsModule} from 'ng2-charts';
 
 import {AppComponent} from './app.component';
 import {RegistrationListComponent} from './registration/registration-list/registration-list.component';
@@ -22,7 +23,7 @@ import {VolunteerFilterByNamePipe} from './volunteer/volunteer-filter.pipe';
 import {RegistrationFilterByVolunteerNamePipe} from './registration/registration-filter.pipe';
 import {RegistrationService} from './shared/registration.service';
 import {StatisticsComponent} from './statistics/statistics.component';
-import {ChartsModule} from 'ng2-charts';
+import {StatisticsService} from './statistics/statistics.service';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import {ChartsModule} from 'ng2-charts';
     HelperService,
     RegistrationService,
     VolunteerService,
+    StatisticsService
   ],
   bootstrap: [AppComponent]
 })
