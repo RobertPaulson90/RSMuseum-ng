@@ -2,17 +2,15 @@
 
 language: node_js
 node_js:
-  - "7.10"
+  - "6.9"
 
 branches:
   only:
     - master
 
 before_script:
-  - npm install -g firebase-tools
-  - npm install -g @angular/cli
-  - npm install -g angular-cli-ghpages
-
+  - yarn global add @angular/cli
+  - yarn global add angular-cli-ghpages
 
 script:
   - ng build --prod --base-href "http://tech-flex.com/RSMuseum-ng/
