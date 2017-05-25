@@ -2,7 +2,7 @@
 
 language: node_js
 node_js:
-  - "6.9"
+  - "7.10"
 
 branches:
   only:
@@ -13,7 +13,7 @@ before_script:
   - yarn global add angular-cli-ghpages
 
 script:
-  - ng build --prod --base-href "http://tech-flex.com/RSMuseum-ng/
+  - ng build --prod --base-href "http://tech-flex.com/RSMuseum-ng/"
 
 after_success:
   - ngh
