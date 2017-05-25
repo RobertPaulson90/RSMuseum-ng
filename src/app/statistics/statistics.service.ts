@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Response, Headers} from '@angular/http';
+import {Http} from '@angular/http';
 import 'rxjs/Rx';
 import {GuildStatistics, Stat} from '../shared/statistics.model';
 
@@ -9,7 +9,6 @@ export class StatisticsService {
   guildStats: GuildStatistics[] = [];
   stats: Stat[] = [];
   stats2: Stat[] = [];
-  barChartData: any[] = [];
   monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun',
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
   ];

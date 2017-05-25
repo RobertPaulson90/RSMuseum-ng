@@ -6,8 +6,8 @@ import {ChartsModule} from 'ng2-charts';
 
 import {AppComponent} from './app.component';
 import {RegistrationListComponent} from './registration/registration-list/registration-list.component';
-import {RegistrationItemComponent} from './Registration/Registration-List/registration-item/registration-item.component';
-import {RegistrationFormComponent} from './Registration/registration-form/registration-form.component';
+import {RegistrationItemComponent} from './registration/registration-List/registration-item/registration-item.component';
+import {RegistrationFormComponent} from './registration/registration-form/registration-form.component';
 import {HeaderComponent} from './header/header.component';
 import {HomeComponent} from './home/home.component';
 import {VolunteerListComponent} from './volunteer/volunteer-list/volunteer-list.component';

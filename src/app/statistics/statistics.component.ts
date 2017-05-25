@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {StatisticsService} from './statistics.service';
 
 @Component({
@@ -13,7 +12,10 @@ export class StatisticsComponent implements OnInit {
   public barChartLabels: string[] = [];
   public barChartType = 'bar';
   public barChartLegend = true;
-
+  public barChartOptions: any = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
   public barChartData: any[] = [
     {data: [65, 0, 80, 81, 56, 55, 40], label: 'Series A'},
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
