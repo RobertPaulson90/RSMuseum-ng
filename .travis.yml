@@ -12,6 +12,11 @@ before_script:
   - yarn global add @angular/cli
   - yarn global add angular-cli-ghpages
 
+before_install:
+  - git config --global user.name "Travis CI"
+  - git config --global user.email "travis@wittig.dk"
+
+
 script:
   - ng build --prod --base-href "http://tech-flex.com/RSMuseum-ng/"
 
