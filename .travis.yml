@@ -21,7 +21,7 @@ script:
   - ng build --prod --base-href "http://tech-flex.com/RSMuseum-ng/"
 
 after_success:
-  - ngh --no-silent
+  - ngh --no-silent --repo=https://GH_TOKEN@github.com/amivit/RSMuseum-ng.git
 
 notifications:
   email:
