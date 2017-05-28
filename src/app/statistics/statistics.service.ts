@@ -1,63 +1,77 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {GuildStatistics, Stat} from '../shared/statistics.model';
+import {Subject} from 'rxjs/Subject';
+import {BarChartData} from './barchartdata.model';
 
 
 @Injectable()
 export class StatisticsService {
-  guildStats: GuildStatistics[] = [];
-  stats: Stat[] = [];
-  stats2: Stat[] = [];
+  guildsStats: GuildStatistics[] = [];
   monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-  ];
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  barChartData: BarChartData[] = [];
   dateLabels: string[] = [];
+
+  dateLabelsSubject = new Subject<string[]>();
+  barChartDataSubject = new Subject<any>();
 
   constructor(private http: Http) {
   }
 
-  getGuildStatistics(datefrom: Date, dateTo: Date) {
-    this.guildStats = [];
-    this.stats = [];
-    this.stats2 = [];
-    this.dateLabels = [];
-    // Call Api to get data
-    for (let i = 0; i <= 5; i++) {
-      this.stats.push(new Stat(datefrom, i + 1, i));
+  createBarChartData() {
+    this.barChartData = [];
+    for (let i = 0; i <= this.guildsStats.length - 1; i++) {
+      const barChart = new BarChartData();
+      barChart.label = this.guildsStats[i].GuildName;
+      barChart.data = [];
+      for (let j = 0; j <= this.guildsStats[0].Stats.length - 1; j++) {
+        barChart.data.push(this.guildsStats[i].Stats[j].TotalHours);
+      }
+      this.barChartData.push(barChart);
     }
-    // for (let i = 0; i <= 5; i++) {
-    //   this.stats2.push(new Stat(dateTo, i + 2, i));
-    // }
-    this.guildStats.push(new GuildStatistics(this.stats, 1, 'laug 1'));
-    this.guildStats.push(new GuildStatistics(this.stats2, 1, 'laug 2'));
-    console.log(this.guildStats);
+    this.barChartDataSubject.next(this.barChartData);
   }
 
-  dateSubstractDays(date: Date, numberOfDays: number) {
+
+
+  getGuildStatistics(datefrom: Date, dateTo: Date) {
+    const url = 'http://rsmuseummvc.azurewebsites.net/api/v2/statistics/' + datefrom.toISOString().substring(0, 10) + '/' + dateTo.toISOString().substring(0, 10);
+    console.log(url);
+    this.http.get(url)
+      .map(
+      (response: Response) => {
+        console.log(response.json());
+        this.guildsStats = response.json();
+        this.setDateLabels();
+        this.createBarChartData();
+        // this.barChartDataSubject.next(this.guildsStats)
+        // this.barChartDataSubject.next(this.)
+        return response;
+      }
+    ).subscribe();
+  }
+
+
+
+  dateAddDays(date: Date, numberOfDays: number) {
     const newDate = new Date(date);
-    newDate.setDate(newDate.getDate() - numberOfDays);
+    newDate.setDate(newDate.getDate() + numberOfDays);
     return newDate;
   }
 
   setDateLabels() {
-    for (let j = 0; j <= this.guildStats[0].Stats.length - 1; j++) {
-      console.log(this.dateLabels);
-      this.dateLabels.push(this.guildStats[0].Stats[j].Date.getDate() + ' ' + this.monthNames[this.guildStats[0].Stats[j].Date.getUTCMonth()]);
-    }
-
-    return this.dateLabels;
-
+    // for (let j = 0; j <= this.guildsStats[0].Stats.length - 1; j++) {
+    //   console.log(this.dateLabels);
+    //   let day = this.guildsStats[0].Stats[j].Date;
+    //   // "2017-05-28T00:00:00"
+    //   day = day.substring(9, 2);
+    //   const month = day.substring(6, 2);
+    //   this.dateLabels.push(day + ' ' + this.monthNames[month]);
+    // }
+    // console.log('this.dateLabelsSubject.next(this.dateLabels)')
+    // this.dateLabelsSubject.next(this.dateLabels);
   }
-
-  // setBarChartData() {
-  //   for (let j = 0; j <= this.guildStats[0].Stats.length - 1; j++) {
-  //     console.log(this.dateLabels);
-  //     this.barChartData.push(this.guildStats[0].Stats[j].TotalHours);
-  //   }
-  //
-  //   return this.barChartData;
-  // }
-
-
 }
+

@@ -3,15 +3,15 @@ import {Volunteer} from './volunteer.model';
 
 export class GuildStatistics {
   constructor(
-    public Stats: Stat[],
     public GuildId: number,
-    public GuildName: string
+    public GuildName: string,
+    public Stats: Stat[]
     ) { }
 }
 
 export class Stat {
   constructor(
-    public Date: Date,
+    public Date: string,
     public TotalHours: number,
     public TotalPeople: number
   ) { }

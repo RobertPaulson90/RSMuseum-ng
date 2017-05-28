@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {StatisticsService} from './statistics.service';
+import {GuildStatistics} from '../shared/statistics.model';
+import {BarChartData} from './barchartdata.model';
 
 @Component({
   selector: 'app-data-view',
@@ -7,44 +9,47 @@ import {StatisticsService} from './statistics.service';
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
-  dateForm: Date;
+  dateFrom: Date;
   dateTo: Date;
-  public barChartLabels: string[] = [];
-  public barChartType = 'bar';
-  public barChartLegend = true;
-  public barChartOptions: any = {
+  barChartLabels: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul'];
+  barChartType = 'bar';
+  barChartLegend = true;
+
+  barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
   };
   public barChartData: any[] = [
-    {data: [65, 0, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series C'}
+    {data: [], label: 'Laug 1'},
+    {data: [], label: 'Laug 2'},
+    {data: [], label: 'Laug 3'},
+    {data: [], label: 'Laug 4'},
+    {data: [], label: 'Laug 5'}
   ];
 
-  constructor(private statisticsService: StatisticsService) {
-  }
-
-  // events
-  public chartClicked(e: any): void {
-    console.log(e);
-  }
-
-  public chartHovered(e: any): void {
-    console.log(e);
-  }
-
-
+  constructor(private statisticsService: StatisticsService) { }
   ngOnInit() {
+    this.statisticsService.dateLabelsSubject
+      .subscribe(
+        (dateLabel: string[]) => console.log(dateLabel),
+        (error) => console.log('fejl'),
+        () => console.log('complete')
+    );
+
+    this.statisticsService.barChartDataSubject
+      .subscribe(
+        (data: BarChartData[]) => this.barChartData = data,
+        (error) => console.log('fejl'),
+        () => console.log('complete')
+      );
   }
 
+  public chartClicked(e: any): void {}
+  public chartHovered(e: any): void {}
 
   onDateSelected(date: Date) {
-    this.dateForm = date;
-    this.dateTo = this.statisticsService.dateSubstractDays(this.dateForm, 28);
-    console.log(this.dateForm);
-    console.log(this.dateTo);
-    this.statisticsService.getGuildStatistics(this.dateForm, this.dateTo);
-    this.barChartLabels = this.statisticsService.setDateLabels();
+    this.dateFrom = date;
+    this.dateTo = this.statisticsService.dateAddDays(this.dateFrom, 7);
+    this.statisticsService.getGuildStatistics(this.dateFrom, this.dateTo);
   }
 }

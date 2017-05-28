@@ -50,7 +50,7 @@ import {StatisticsService} from './statistics/statistics.service';
     DatepickerModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
   ],
   providers: [
     HelperService,
