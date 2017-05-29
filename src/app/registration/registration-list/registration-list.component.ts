@@ -39,8 +39,8 @@ export class RegistrationListComponent implements OnInit {
       );
   }
 
-  onSearchStringChanged(searchStrinng: string) {
-    this.searchString = searchStrinng;
+  onSearchStringChanged(searchString: string) {
+    this.searchString = searchString;
   }
 
   handleRegistration(id: number, approved: boolean) {
