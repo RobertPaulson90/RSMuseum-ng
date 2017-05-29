@@ -35,24 +35,22 @@ export class StatisticsService {
   }
 
 
-
   getGuildStatistics(datefrom: Date, dateTo: Date) {
     const url = 'http://rsmuseummvc.azurewebsites.net/api/v2/statistics/' + datefrom.toISOString().substring(0, 10) + '/' + dateTo.toISOString().substring(0, 10);
     console.log(url);
     this.http.get(url)
       .map(
-      (response: Response) => {
-        console.log(response.json());
-        this.guildsStats = response.json();
-        this.setDateLabels();
-        this.createBarChartData();
-        // this.barChartDataSubject.next(this.guildsStats)
-        // this.barChartDataSubject.next(this.)
-        return response;
-      }
-    ).subscribe();
+        (response: Response) => {
+          console.log(response.json());
+          this.guildsStats = response.json();
+          this.setDateLabels();
+          this.createBarChartData();
+          // this.barChartDataSubject.next(this.guildsStats)
+          // this.barChartDataSubject.next(this.)
+          return response;
+        }
+      ).subscribe();
   }
-
 
 
   dateAddDays(date: Date, numberOfDays: number) {
