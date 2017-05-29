@@ -21,7 +21,7 @@
       </tr>
       </thead>
       <tbody name="list" is="transition-group">
-      <tr *ngFor="let registration of registrations | registrationFilterByVolunteerName:searchString; let i = index"
+      <tr *ngFor="let registration of registrations | registrationFilterByVolunteerName:searchString"
           [@tableRowLeavAnimation]>
         <td>{{registration.Volunteer.FirstName}} {{registration.Volunteer.LastName}}</td>
         <td>{{registration.Date}}</td>
