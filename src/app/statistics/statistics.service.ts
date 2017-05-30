@@ -33,6 +33,17 @@ export class StatisticsService {
     }
     this.barChartDataSubject.next(this.barChartData);
   }
+  setDateLabels() {
+    this.dateLabels = [];
+    for (let j = 0; j <= this.guildsStats[0].Stats.length - 1; j++) {
+      const dateString = this.guildsStats[0].Stats[j].Date
+      const newDate = new Date(dateString);
+      const day = newDate.getDate();
+      const month = newDate.getUTCMonth();
+      this.dateLabels.push(day + ' ' + this.monthNames[month]);
+    }
+    this.dateLabelsSubject.next(this.dateLabels);
+  }
 
 
 
@@ -59,19 +70,6 @@ export class StatisticsService {
     const newDate = new Date(date);
     newDate.setDate(newDate.getDate() + numberOfDays);
     return newDate;
-  }
-
-  setDateLabels() {
-    // for (let j = 0; j <= this.guildsStats[0].Stats.length - 1; j++) {
-    //   console.log(this.dateLabels);
-    //   let day = this.guildsStats[0].Stats[j].Date;
-    //   // "2017-05-28T00:00:00"
-    //   day = day.substring(9, 2);
-    //   const month = day.substring(6, 2);
-    //   this.dateLabels.push(day + ' ' + this.monthNames[month]);
-    // }
-    // console.log('this.dateLabelsSubject.next(this.dateLabels)')
-    // this.dateLabelsSubject.next(this.dateLabels);
   }
 }
 

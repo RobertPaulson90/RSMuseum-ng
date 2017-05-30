@@ -11,7 +11,7 @@ export class GuildStatistics {
 
 export class Stat {
   constructor(
-    public Date: string,
+    public Date: Date,
     public TotalHours: number,
     public TotalPeople: number
   ) { }
