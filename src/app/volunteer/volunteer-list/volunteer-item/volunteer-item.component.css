@@ -1,0 +1,15 @@
+.goDownToListHeight {
+  margin-top: 144px;
+  margin-left: 50px;
+}
+img {
+  top: 0; bottom:0; left: 0; right:0;
+  margin: auto;
+}
+.input-group {
+  margin-top: 10px;
+}
+span {
+  width: 120px;
+}
+

@@ -24,6 +24,7 @@ import {RegistrationFilterByVolunteerNamePipe} from './registration/registration
 import {RegistrationService} from './shared/registration.service';
 import {StatisticsComponent} from './statistics/statistics.component';
 import {StatisticsService} from './statistics/statistics.service';
+import { VolunteerComponent } from './volunteer/volunteer.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {StatisticsService} from './statistics/statistics.service';
     ErrorPageComponent,
     VolunteerFilterByNamePipe,
     RegistrationFilterByVolunteerNamePipe,
-    StatisticsComponent
+    StatisticsComponent,
+    VolunteerComponent
   ],
   imports: [
     BrowserModule,
