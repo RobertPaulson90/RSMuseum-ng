@@ -1,4 +1,4 @@
-# RSMuseum-ng ![Travis](https://travis-ci.org/amivit/RSMuseum-ng.svg?branch=master)
+# RSMuseum-ng [![Build Status](https://travis-ci.org/amivit/RSMuseum-ng.svg?branch=master)](https://travis-ci.org/amivit/RSMuseum-ng)
 
 An Angular web application serving as a front-end, for a separate projects back-end :-) 
 
