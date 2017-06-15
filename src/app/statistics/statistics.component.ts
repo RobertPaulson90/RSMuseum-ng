@@ -24,16 +24,14 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   public barChartData: any[] = [
     {data: [], label: 'Laug 1'},
     {data: [], label: 'Laug 2'},
-    {data: [], label: 'Laug 3'},
-    {data: [], label: 'Laug 4'},
-    {data: [], label: 'Laug 5'}
   ];
 
   constructor(private statisticsService: StatisticsService) {
   }
 
   ngOnInit() {
-  this.subscription = this.statisticsService.dateLabelsSubject
+    this.barChartData = this.statisticsService.barChartData;
+    this.subscription = this.statisticsService.dateLabelsSubject
       .subscribe(
         (dateLabel: string[]) => console.log(dateLabel),
         (error) => console.log('fejl'),

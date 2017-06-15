@@ -6,7 +6,7 @@
     </div>
 
     <div>
-      <div style="display: block">
+      <div style="display: block" *ngIf="loaded">
         <canvas baseChart
                 [datasets]="barChartData"
                 [labels]="barChartLabels"

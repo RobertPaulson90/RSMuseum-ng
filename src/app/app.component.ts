@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {StatisticsService} from './statistics/statistics.service';
+import {VolunteerService} from './volunteer/volunteer.service';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,9 @@ export class AppComponent {
 
   title = 'app works!';
 
-  // constructor(private statisticsService: StatisticsService) {
-  // }
+  constructor(private volunteerService: VolunteerService) {
+    // Preload the volunteerservice
+  }
   //
   // ngOnInit() {
   //   console.log(this.datenow);

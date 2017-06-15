@@ -18,12 +18,14 @@ export class VolunteerListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.volunteerService.getVolunteers()
-      .subscribe(
-        (volunteers) => this.volunteers = volunteers,
-        (error) => console.log(error),
-        () => console.log(this.loading = false)
-      );
+    this.volunteers = this.volunteerService.volunteers;
+    this.loading = false;
+    // this.volunteerService.getVolunteers()
+    //   .subscribe(
+    //     (volunteers) => this.volunteers = volunteers,
+    //     (error) => console.log(error),
+    //     () => console.log(this.loading = false)
+    //   );
   }
 
   onSearchStringChanged(searchStrinng: string) {

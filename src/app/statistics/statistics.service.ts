@@ -11,7 +11,7 @@ export class StatisticsService {
   guildsStats: GuildStatistics[] = [];
   monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun',
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  barChartData: BarChartData[] = [];
+  public barChartData: BarChartData[] = [];
   dateLabels: string[] = [];
 
   dateLabelsSubject = new Subject<string[]>();
