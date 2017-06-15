@@ -1,4 +1,4 @@
-<div class="container">
+<div class="row">
   <div *ngIf="loading; else elseBlock">
     <div class="spinner">
       <div class="rect1"></div>
@@ -20,7 +20,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let volunteer of volunteers | volunteerFilterByName:searchString">
+      <tr *ngFor="let volunteer of volunteers | volunteerFilterByName:searchString" (click)="redirectToVolunteer(volunteer.membershipNumber)">
         <td>{{volunteer.firstName}} {{volunteer.lastName}}</td>
         <td>{{volunteer.membershipNumber}}</td>
         <td>{{volunteer.guildNames}}</td>
